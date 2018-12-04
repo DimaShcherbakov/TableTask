@@ -1,51 +1,60 @@
-<!DOCTYPE html>
-<html>
- <head>
-  <meta charset="utf-8" />
-  <title>Table</title>
-  <link rel="stylesheet" href="./style.css">
-  <script src = "./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-  <link href = "./node_modules/bootstrap/dist/css/bootstrap.min.css"/>
- </head>
- <body>
-     <h1 class = "title-wrapper">
-        Table of the most popular news at 
+<!Doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Table</title>
+  </head>
+  <body>
+    <h1 class = "h2 text-center">
+        Table of the most popular news at <br/>
         <span>"The New York Times"</span> 
      </h1>
-     <div class = "wrapper">
-        <div action="" class = "user-enter">
+     <div class="container">
+        <div class="row justify-content-md-center">
+          <div class="col-sm2">
             <label for="exampleFormControlInput1">Section</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1">
+            <input type="text" class="form-control" id="exampleFormControlInput1">
             <label for="exampleFormControlInput1">Title</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1">
+            <input type="text" class="form-control" id="exampleFormControlInput1">
             <label for="exampleFormControlInput1">Author</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1">
+            <input type="text" class="form-control" id="exampleFormControlInput1">
             <label for="exampleFormControlInput1">Created_date</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1">
-            <button id = "add-element">Add item</button>
-        </div>
-        <div>
-            <div class = "table-header">
-                <button id = "descending-sort" onclick="sorting(2)"></button>
-                <!-- <button id = "normal-state" onclick="sorting(0)"></button> -->
-                <button id = "ascending-sort" onClick="sorting(1)"></button>
-                <select id = "user-choice" class="form-control form-control-sm" onChange="filter()">
-                    <option value="">Select filter</option>
-                </select>
+            <input type="text" class="form-control" id="exampleFormControlInput1">
+            <button class = "btn btn-secondary" id = "add-element">Add item</button>
+          </div>
+          <div class="col-sm">
+            <div>
+                <div class = "container">
+                    <div class="row">
+                    <button class="btn btn-info " onclick="sorting(1)">A to Z</button>
+                    <button class="btn btn-light  " onclick="sorting(0)">Reset</button> 
+                    <button class="btn btn-info " onClick="sorting(2)">Z to A</button>
+                    <select id = "user-choice" class="form-control form-control-LG col-5" onChange="filter()">
+                        <option value="">Select filter</option>
+                    </select>
+                    </div>
+                </div>
+                <table class = "table table-bordered" id = "myTable" >
+                    <thead > 
+                        <tr class="table-primary">
+                            <th class = "text-center  w-15">Section</th>
+                            <th class = "text-center  w-30">Title</th>
+                            <th class = "text-center  w-30">Authors</th>
+                            <th class = "text-center  w-25">Created date</th>
+                        </tr>
+                        </thead> 
+                    <tbody id = "bodyTable"></tbody>
+                </table>
             </div>
-            <table id = "myTable" border="1">
-        <thead> 
-            <tr>
-                <th>Section</th>
-                <th>Title</th>
-                <th>Authors</th>
-                <th>Created date</th>
-            </tr>
-        </thead> 
-        <tbody id = "bodyTable"></tbody>
-            </table>
+          </div> 
         </div>
-    </div>
-  <script src = "script.js"></script>
- </body>
+      </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src = "js/script.js"></script>
+</body>
 </html>

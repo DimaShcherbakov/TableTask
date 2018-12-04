@@ -10,15 +10,13 @@ let Request = async (url)=>{
     const info = await fetch(`${url}`);
     const data = await info.json();
     resultArray = data.results;
-    for(let g = 0; g < resultArray.length; g++){
-        copyResultArray.push(resultArray[g])
-    }
+    copyResultArray = resultArray;
     return resultArray,copyResultArray;
 }
 const dataTr = Request(resultUrl)
 .then(res => { 
     resultArray = res;
-    createTable(resultArray);
+    createUI(resultArray);
     });
 
 let createSelect = (array)=>{
@@ -30,7 +28,7 @@ let createSelect = (array)=>{
     }
 }
 
-let createTable = (array) => {
+let createUI = (array) => {
     document.getElementById("bodyTable").innerHTML = "";
     for(let i = 0; i < array.length; i++){
         sectionArray.push(array[i].section);
@@ -38,9 +36,13 @@ let createTable = (array) => {
         tr.id = "Table-row" + i;
 
         let td_1 = document.createElement("td");
+        td_1.className = "text-center center-block table-primary";
         let td_2 = document.createElement("td");
+        td_2.className = "text-center center-block table-info";
         let td_3 = document.createElement("td");
+        td_3.className = "text-center center-block table-info";
         let td_4 = document.createElement("td");
+        td_4.className = "text-center center-block table-info";
 
         let textTd_1 = document.createTextNode(array[i].section);
         td_1.appendChild(textTd_1);
@@ -63,16 +65,16 @@ let createTable = (array) => {
 
 let sorting = (sortType)=>{
     switch(sortType){
-        // case 0:
-        //     document.getElementById("bodyTable").innerHTML = "";
-        //     document.getElementById("user-choice").value = "Select filter";
-        //     console.log(copyResultArray)
-        //     createTable(copyResultArray);
-        //     break;
+        case 0:
+            document.getElementById("bodyTable").innerHTML = "";
+            document.getElementById("user-choice").value = "Select filter";
+            console.log(resultArray)
+            createUI(resultArray);
+            break;
         case 1: 
             document.getElementById("bodyTable").innerHTML = "";
             document.getElementById("user-choice").value = "Select filter"
-            let ascArray = resultArray.sort((a, b)=> {
+            let ascArray = copyResultArray.sort((a, b)=> {
                 if (a.section > b.section) {
                 return 1;
                 }
@@ -81,12 +83,12 @@ let sorting = (sortType)=>{
                 }
                 return 0;
             });
-            createTable(ascArray);
+            createUI(ascArray);
             break;
         case 2: 
             document.getElementById("bodyTable").innerHTML = "";
             document.getElementById("user-choice").value = "Select filter";
-            let descArray = resultArray.sort((a, b)=> {
+            let descArray = copyResultArray.sort((a, b)=> {
                 if (a.section < b.section) {
                 return 1;
                 }
@@ -95,14 +97,14 @@ let sorting = (sortType)=>{
                 }
                 return 0;
             });
-            createTable(descArray);
+            createUI(descArray);
             break;
     }
 }
 let filter = ()=>{
     if(document.getElementById("user-choice").value !="Select filter"){
-        clearArray = resultArray.filter(item => item.section === document.getElementById("user-choice").value);
-        createTable(clearArray);
+        clearArray = copyResultArray.filter(item => item.section === document.getElementById("user-choice").value);
+        createUI(clearArray);
     }
 }
 

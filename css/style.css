@@ -1,0 +1,20 @@
+
+body{
+    max-width: 980px;
+    margin:0 auto;
+    background-color:burlywood;
+}
+
+span{
+    font-family: "Old English Text MT";
+    font-size: 32px;
+}
+.table{
+    margin-top:10px;
+}
+.row .col-sm2{
+    padding-top:40px;
+}
+#add-element{
+    margin-top:20px;
+}
