@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8" />
+  <title>Table</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src = "./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <link href = "./node_modules/bootstrap/dist/css/bootstrap.min.css"/>
+ </head>
+ <body>
+     <h1 class = "title-wrapper">
+        Table of the most popular news at 
+        <span>"The New York Times"</span> 
+     </h1>
+     <div class = "wrapper">
+        <div action="" class = "user-enter">
+            <label for="exampleFormControlInput1">Section</label>
+            <input type="email" class="form-control" id="exampleFormControlInput1">
+            <label for="exampleFormControlInput1">Title</label>
+            <input type="email" class="form-control" id="exampleFormControlInput1">
+            <label for="exampleFormControlInput1">Author</label>
+            <input type="email" class="form-control" id="exampleFormControlInput1">
+            <label for="exampleFormControlInput1">Created_date</label>
+            <input type="email" class="form-control" id="exampleFormControlInput1">
+            <button id = "add-element">Add item</button>
+        </div>
+        <div>
+            <div class = "table-header">
+                <button id = "descending-sort" onclick="sorting(2)"></button>
+                <!-- <button id = "normal-state" onclick="sorting(0)"></button> -->
+                <button id = "ascending-sort" onClick="sorting(1)"></button>
+                <select id = "user-choice" class="form-control form-control-sm" onChange="filter()">
+                    <option value="">Select filter</option>
+                </select>
+            </div>
+            <table id = "myTable" border="1">
+        <thead> 
+            <tr>
+                <th>Section</th>
+                <th>Title</th>
+                <th>Authors</th>
+                <th>Created date</th>
+            </tr>
+        </thead> 
+        <tbody id = "bodyTable"></tbody>
+            </table>
+        </div>
+    </div>
+  <script src = "script.js"></script>
+ </body>
+</html>
