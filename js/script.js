@@ -23,7 +23,6 @@ const dataTr = Request(resultUrl)
     });
 
 let createSelect = (array)=>{
-    document.getElementById("user-choice").innerHTML = "";
     for(let k = 0; k < array.length; k++){
         let option = document.createElement("option");
         let text = document.createTextNode(array[k]);
@@ -36,6 +35,7 @@ let createUI = (array) => {
     document.getElementById("bodyTable").innerHTML = "";
     for(let i = 0; i < array.length; i++){
         sectionArray.push(array[i].section);
+        sectionArray.id = "section-item";
         let tr = document.createElement("tr");
         tr.id = "Table-row" + i;
 
@@ -66,17 +66,10 @@ let createUI = (array) => {
     sectionArray = sectionArray.filter((item, pos, self) => self.indexOf(item) == pos); 
     createSelect(sectionArray);
 }
-
 let sorting = (sortType)=>{
     switch(sortType){
-        case 0:
-            document.getElementById("bodyTable").innerHTML = "";
-            document.getElementById("user-choice").value = "Select filter";
-            createUI(ARR);
-            break;
         case 1: 
             document.getElementById("bodyTable").innerHTML = "";
-            document.getElementById("user-choice").value = "Select filter"
             let ascArray = copyResultArray.sort((a, b)=> {
                 if (a.section > b.section) {
                 return 1;
@@ -90,7 +83,6 @@ let sorting = (sortType)=>{
             break;
         case 2: 
             document.getElementById("bodyTable").innerHTML = "";
-            document.getElementById("user-choice").value = "Select filter";
             let descArray = copyResultArray.sort((a, b)=> {
                 if (a.section < b.section) {
                 return 1;
@@ -110,7 +102,6 @@ let filter = ()=>{
         createUI(clearArray);
     }
 }
-
 let addElement = ()=>{
     item = {
         section: document.getElementById("input_section").value,
@@ -119,12 +110,11 @@ let addElement = ()=>{
         created_date: document.getElementById("input_created_date").value
     }
     copyResultArray.push(item);
+    document.getElementById("user-choice").value ="Select filter";
     createUI(copyResultArray);
 }
-
-
-
-
-
-
-     
+let reset = ()=>{
+    document.getElementById("bodyTable").innerHTML = "";
+    document.getElementById("user-choice").value ="Select filter";
+    createUI(ARR);
+}
