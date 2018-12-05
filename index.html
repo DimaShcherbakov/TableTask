@@ -15,26 +15,26 @@
      <div class="container">
         <div class="row justify-content-md-center">
           <div class="col-sm2">
-            <label for="exampleFormControlInput1">Section</label>
-            <input type="text" class="form-control" id="exampleFormControlInput1">
-            <label for="exampleFormControlInput1">Title</label>
-            <input type="text" class="form-control" id="exampleFormControlInput1">
-            <label for="exampleFormControlInput1">Author</label>
-            <input type="text" class="form-control" id="exampleFormControlInput1">
-            <label for="exampleFormControlInput1">Created_date</label>
-            <input type="text" class="form-control" id="exampleFormControlInput1">
-            <button class = "btn btn-secondary" id = "add-element">Add item</button>
-          </div>
+            <label for="input_section">Section</label>
+            <input type="text" class="form-control" id="input_section">
+            <label for="input_title">Title</label>
+            <input type="text" class="form-control" id="input_title">
+            <label for="input_authors">Author</label>
+            <input type="text" class="form-control" id="input_authors">
+            <label for="input_created_date">Created_date</label>
+            <input type="text" class="form-control" id="input_created_date">
+            <button class = "btn btn-secondary" id = "add-element" onclick="addElement()">Add item</button>
+        </div>
           <div class="col-sm">
             <div>
                 <div class = "container">
                     <div class="row">
-                    <button class="btn btn-info " onclick="sorting(1)">A to Z</button>
-                    <button class="btn btn-light  " onclick="sorting(0)">Reset</button> 
-                    <button class="btn btn-info " onClick="sorting(2)">Z to A</button>
-                    <select id = "user-choice" class="form-control form-control-LG col-5" onChange="filter()">
-                        <option value="">Select filter</option>
-                    </select>
+                        <button class="btn btn-info " onclick="sorting(1)">A to Z</button>
+                        <button class="btn btn-light  " onclick="sorting(0)">Reset</button> 
+                        <button class="btn btn-info " onClick="sorting(2)">Z to A</button>
+                        <select id = "user-choice" class="form-control form-control-LG col-5" onChange="filter()">
+                            <option value="">Select filter</option>
+                        </select>
                     </div>
                 </div>
                 <table class = "table table-bordered" id = "myTable" >
@@ -45,7 +45,7 @@
                             <th class = "text-center  w-30">Authors</th>
                             <th class = "text-center  w-25">Created date</th>
                         </tr>
-                        </thead> 
+                    </thead> 
                     <tbody id = "bodyTable"></tbody>
                 </table>
             </div>

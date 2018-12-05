@@ -6,7 +6,7 @@ body{
 }
 
 span{
-    font-family: "Old English Text MT";
+    font-family: "Old English Text MT", 'Franklin Gothic Medium', sans-serif;
     font-size: 32px;
 }
 .table{

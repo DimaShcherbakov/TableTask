@@ -4,13 +4,16 @@ const resultUrl = apiUrl + "?api-key="+ apiKey;
 
 let resultArray = [];
 let copyResultArray = [];
+let ARR = [];
 let sectionArray = [];
+let item = {};
 
 let Request = async (url)=>{ 
     const info = await fetch(`${url}`);
     const data = await info.json();
     resultArray = data.results;
-    copyResultArray = resultArray;
+    ARR = [...resultArray];
+    copyResultArray = [...resultArray];
     return resultArray,copyResultArray;
 }
 const dataTr = Request(resultUrl)
@@ -20,6 +23,7 @@ const dataTr = Request(resultUrl)
     });
 
 let createSelect = (array)=>{
+    document.getElementById("user-choice").innerHTML = "";
     for(let k = 0; k < array.length; k++){
         let option = document.createElement("option");
         let text = document.createTextNode(array[k]);
@@ -68,8 +72,7 @@ let sorting = (sortType)=>{
         case 0:
             document.getElementById("bodyTable").innerHTML = "";
             document.getElementById("user-choice").value = "Select filter";
-            console.log(resultArray)
-            createUI(resultArray);
+            createUI(ARR);
             break;
         case 1: 
             document.getElementById("bodyTable").innerHTML = "";
@@ -108,6 +111,16 @@ let filter = ()=>{
     }
 }
 
+let addElement = ()=>{
+    item = {
+        section: document.getElementById("input_section").value,
+        title: document.getElementById("input_title").value,
+        byline: document.getElementById("input_authors").value,
+        created_date: document.getElementById("input_created_date").value
+    }
+    copyResultArray.push(item);
+    createUI(copyResultArray);
+}
 
 
 
